@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700;900&family=Raleway:wght@100;600;700;800&display=swap");
+
+.ff-lato {
+  font-family: "Lato", sans-serif;
+}
+
+.ff-raleway {
+  font-family: "Raleway", sans-serif;
+}
+
+.ff-merri {
+  font-family: "Merriweather", serif;
+}

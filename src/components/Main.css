@@ -1,0 +1,20 @@
+.section_content {
+  max-width: 850px;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-left: auto;
+}
+
+.header-main {
+  color: #000675;
+}
+
+.divider-footer {
+  height: 100px;
+  margin-right: auto;
+  margin-bottom: -5px;
+  margin-left: auto;
+  background-position: 0% 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
