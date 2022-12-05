@@ -3,11 +3,14 @@ import styles from "./genderButton.module.css";
 import maleIcon from "../../assets/male_9090_13.png";
 import femaleIcon from "../../assets/female_c847_14.png";
 
-function GenderButton({ gender }) {
+function GenderButton({ gender, updateProgressbar, active, circle }) {
   const icon = gender === "male" ? maleIcon : femaleIcon;
 
   return (
-    <div className={`gender-button ${styles[gender]}`}>
+    <div
+      onClick={() => updateProgressbar(active, circle)}
+      className={`gender-button ${styles[gender]}`}
+    >
       <img
         className="gender-icon w-2/5 block mx-auto"
         src={icon}

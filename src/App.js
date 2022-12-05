@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import "./App.css";
 import "./assets/fonts.css";
 import firstCardImage from "./assets/body1_15a3_9.png";
@@ -10,8 +12,18 @@ import Box from "./components/Box/Box";
 import Button from "./components/Button/Button";
 import Footer from "./components/Footer/Footer";
 import GenderButton from "./components/Button/GenderButton";
+import Progressbar from "./components/Progressbar/Progressbar";
 
 function App() {
+  const [circle, setCircle] = useState(11);
+  const [circleActive, setCircleActive] = useState(0);
+
+  function updateProgressbar(active, circle) {
+    active >= circle ? setCircleActive(circle) : setCircleActive(active + 1);
+  }
+
+  console.log(circleActive);
+
   return (
     <div className="App">
       {/* Step 1 */}
@@ -45,9 +57,20 @@ function App() {
           </h1>
           <div className="quiz-box-wrapper mt-5">
             <div className="gender-box mx-auto flex justify-center w-11/12">
-              <GenderButton gender="male" />
-              <GenderButton gender="female" />
+              <GenderButton
+                active={circleActive}
+                circle={circle}
+                updateProgressbar={updateProgressbar}
+                gender="male"
+              />
+              <GenderButton
+                active={circleActive}
+                circle={circle}
+                updateProgressbar={updateProgressbar}
+                gender="female"
+              />
             </div>
+            <Progressbar active={circleActive} circle={circle} />
           </div>
         </div>
       </div>
