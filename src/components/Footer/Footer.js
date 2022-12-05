@@ -11,15 +11,15 @@ function Footer() {
           <div className="footer-copyright text-center">
             Copyright &#169; 2018 - 2022
             <br />
-            <a href="#" class="footer-link hover:underline">
+            <a href="#" className="footer-link hover:underline">
               Terms &amp; Condition
             </a>
             &nbsp;|&nbsp;
-            <a href="#" class="footer-link hover:underline">
+            <a href="#" className="footer-link hover:underline">
               Privacy Policy
             </a>
             &nbsp;|&nbsp;
-            <a href="#" class="footer-link hover:underline">
+            <a href="#" className="footer-link hover:underline">
               Shipping and Returns
             </a>
           </div>

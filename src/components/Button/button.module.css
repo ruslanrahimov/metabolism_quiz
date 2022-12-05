@@ -1,12 +1,10 @@
-.main-button {
-  display: block;
-  width: 50%;
-  margin-top: 25px;
+.aliginCenter {
   margin-right: auto;
   margin-left: auto;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-radius: 100px;
+}
+
+.button {
+  display: block;
   background-image: -webkit-gradient(
     linear,
     left top,
@@ -20,9 +18,31 @@
   transition: all 100ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
   font-family: Raleway, sans-serif;
   color: #fff;
-  font-size: 36px;
   line-height: 1;
   font-weight: 800;
   text-align: center;
   text-decoration: none;
+}
+
+.main {
+  composes: button;
+  composes: aliginCenter;
+  margin-top: 25px;
+  font-size: 36px;
+  width: 50%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 100px;
+  text-transform: uppercase;
+}
+
+.small {
+  composes: button;
+  composes: aliginCenter;
+  margin-top: 10px;
+  font-size: 18px;
+  width: 20%;
+  padding: 15px 0;
+  border-radius: 100px;
+  text-transform: uppercase;
 }

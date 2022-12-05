@@ -7,18 +7,18 @@ import fourthCardImage from "./assets/body4_b846_12.png";
 import footerEdge from "./assets/footer-edge_b3e5_16.png";
 import Logo from "./components/Logo/Logo";
 import Box from "./components/Box/Box";
-import MainButton from "./components/MainButton/MainButton";
+import Button from "./components/MainButton/Button";
 import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <div className="App">
       <div className="section_headline flex justify-center py-4">
-        <Logo />
+        <Logo size="big" />
       </div>
       <div className="section_content">
         <div className="header-main-wrapper w-4/5 mx-auto mb-4">
-          <h1 className="header-main ff-raleway font-extrabold text-2xl">
+          <h1 className="header-main ff-raleway font-extrabold text-2xl text-center">
             New Keto Routine Speeds Your Metabolism to Ketosis. Take our quick 1
             minute quiz to see if it would work for you?
           </h1>
@@ -29,7 +29,7 @@ function App() {
           <Box image={thirdCardImage} />
           <Box image={fourthCardImage} />
         </div>
-        <MainButton href="https://google.com" text="TAKE THE QUIZ NOW" />
+        <Button type="main" label="take the quiz now" />
       </div>
       <div
         className="divider-footer"
