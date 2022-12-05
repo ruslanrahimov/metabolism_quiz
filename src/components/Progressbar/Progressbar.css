@@ -1,0 +1,25 @@
+.progressbar {
+  display: flex;
+  width: 70%;
+  padding: 15px 25px;
+  margin: 100px auto 0;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 100px;
+  background-color: #fff;
+  background-image: url("../../assets/bg-grey-small_7add_64.jpg");
+  background-position: 50% 50%;
+  background-size: 91% 5px;
+  background-repeat: no-repeat;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: #e6e6e6;
+}
+
+.circle.active {
+  background-color: #93c954;
+}
