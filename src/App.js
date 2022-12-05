@@ -7,29 +7,49 @@ import fourthCardImage from "./assets/body4_b846_12.png";
 import footerEdge from "./assets/footer-edge_b3e5_16.png";
 import Logo from "./components/Logo/Logo";
 import Box from "./components/Box/Box";
-import Button from "./components/MainButton/Button";
+import Button from "./components/Button/Button";
 import Footer from "./components/Footer/Footer";
+import GenderButton from "./components/Button/GenderButton";
 
 function App() {
   return (
     <div className="App">
-      <div className="section_headline flex justify-center py-4">
-        <Logo size="big" />
+      {/* Step 1 */}
+      <div className="main">
+        <div className="section_headline flex justify-center py-4">
+          <Logo size="big" />
+        </div>
+        <div className="section_content">
+          <div className="header-main-wrapper w-4/5 mx-auto mb-4">
+            <h1 className="header-main ff-raleway font-extrabold text-2xl text-center">
+              New Keto Routine Speeds Your Metabolism to Ketosis. Take our quick
+              1 minute quiz to see if it would work for you?
+            </h1>
+          </div>
+          <div className="main-box-wrapper mt-5 mx-auto">
+            <Box image={firstCardImage} />
+            <Box image={secondCardImage} />
+            <Box image={thirdCardImage} />
+            <Box image={fourthCardImage} />
+          </div>
+          <Button type="main" label="take the quiz now" />
+        </div>
       </div>
-      <div className="section_content">
-        <div className="header-main-wrapper w-4/5 mx-auto mb-4">
-          <h1 className="header-main ff-raleway font-extrabold text-2xl text-center">
-            New Keto Routine Speeds Your Metabolism to Ketosis. Take our quick 1
-            minute quiz to see if it would work for you?
+      {/* Step 2 */}
+      <div className="quiz-sex">
+        <div className="section_content">
+          <h1 className="quiz-sex-header text-center mt-10 mb-11">
+            Is This New <span className="font-extrabold">Speed Keto</span>
+            <br />
+            <span style={{ fontSize: "50px" }}>Routine For You?</span>
           </h1>
+          <div className="quiz-box-wrapper mt-5">
+            <div className="gender-box mx-auto flex justify-center w-11/12">
+              <GenderButton gender="male" />
+              <GenderButton gender="female" />
+            </div>
+          </div>
         </div>
-        <div className="main-box-wrapper mt-5 mx-auto">
-          <Box image={firstCardImage} />
-          <Box image={secondCardImage} />
-          <Box image={thirdCardImage} />
-          <Box image={fourthCardImage} />
-        </div>
-        <Button type="main" label="take the quiz now" />
       </div>
       <div
         className="divider-footer"

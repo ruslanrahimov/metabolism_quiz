@@ -1,19 +1,4 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @import url("./assets/fonts.css");
-
-body {
-  background-image: url("./assets/bg-meat-1_9da4_13.png"),
-    url("./assets/bg-plate-1_4f9f_14.png"),
-    url("./assets/background_e309_15.jpg");
-  background-position: 107% 20%, -80px -60px, 50% 0%;
-  background-size: 280px, 350px, cover;
-  background-repeat: no-repeat, no-repeat, repeat-y;
-  background-attachment: scroll, scroll, scroll;
-}
-
-img {
-  max-width: 100%;
-}
