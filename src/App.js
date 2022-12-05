@@ -1,19 +1,18 @@
-import React from "react";
-import "./Main.css";
-import "../assets/fonts.css";
-import firstCardImage from "../assets/body1_15a3_9.png";
-import secondCardImage from "../assets/body2_5160_10.png";
-import thirdCardImage from "../assets/body3_fa53_11.png";
-import fourthCardImage from "../assets/body4_b846_12.png";
-import footerEdge from "../assets/footer-edge_b3e5_16.png";
-import Logo from "./Logo";
-import Box from "./Box";
-import MainButton from "./MainButton";
-import Footer from "./Footer";
+import "./App.css";
+import "./assets/fonts.css";
+import firstCardImage from "./assets/body1_15a3_9.png";
+import secondCardImage from "./assets/body2_5160_10.png";
+import thirdCardImage from "./assets/body3_fa53_11.png";
+import fourthCardImage from "./assets/body4_b846_12.png";
+import footerEdge from "./assets/footer-edge_b3e5_16.png";
+import Logo from "./components/Logo/Logo";
+import Box from "./components/Box/Box";
+import MainButton from "./components/MainButton/MainButton";
+import Footer from "./components/Footer/Footer";
 
-function Main() {
+function App() {
   return (
-    <div>
+    <div className="App">
       <div className="section_headline flex justify-center py-4">
         <Logo />
       </div>
@@ -41,4 +40,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default App;

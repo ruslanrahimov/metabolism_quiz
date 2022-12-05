@@ -1,6 +1,6 @@
 import React from "react";
 import "./FooterLogo.css";
-import logo from "../assets/skt-vertical-700x160_19ef_7.png";
+import logo from "../../assets/skt-vertical-700x160_19ef_7.png";
 
 function FooterLogo() {
   return (
