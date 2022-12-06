@@ -22,12 +22,13 @@
   font-weight: 800;
   text-align: center;
   text-decoration: none;
+  margin-top: 25px;
+  cursor: pointer;
 }
 
 .main {
   composes: button;
   composes: aliginCenter;
-  margin-top: 25px;
   font-size: 36px;
   width: 50%;
   padding-top: 20px;
@@ -36,13 +37,28 @@
   text-transform: uppercase;
 }
 
-.small {
+.next {
   composes: button;
   composes: aliginCenter;
-  margin-top: 10px;
-  font-size: 18px;
-  width: 20%;
-  padding: 15px 0;
-  border-radius: 100px;
+  width: 40%;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border: 2px solid #ff9831;
+  border-top-color: rgb(255, 152, 49);
+  border-right-color: rgb(255, 152, 49);
+  border-bottom-color: rgb(255, 152, 49);
+  border-left-color: rgb(255, 152, 49);
+  border-radius: 30px;
+  font-size: 25px;
+  line-height: 1.4;
+  font-weight: 700;
+  text-align: center;
   text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.next:hover {
+  border-color: #ff3a13;
+  background-image: linear-gradient(180deg, #ff3a13, #ff3a13);
+  box-shadow: 8px 8px 13px 3px rgba(255, 255, 255, 0);
 }
