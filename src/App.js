@@ -1,5 +1,4 @@
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 import "./App.css";
 import "./assets/fonts.css";
 import firstCardImage from "./assets/body1_15a3_9.png";
@@ -7,46 +6,29 @@ import secondCardImage from "./assets/body2_5160_10.png";
 import thirdCardImage from "./assets/body3_fa53_11.png";
 import fourthCardImage from "./assets/body4_b846_12.png";
 import footerEdge from "./assets/footer-edge_b3e5_16.png";
-// import chickenMeatIcon from "./assets/chicken-icon-1chicke_6589_15.png";
-// import porkMeatIcon from "./assets/pork-icon-01-1pork-i_0231_17.png";
-// import beefMeatIcon from "./assets/beef-icon-01_ff53_18.png";
-// import fishMeatIcon from "./assets/fish-icon-01_f49d_19.png";
-// import baconMeatIcon from "./assets/bacon-icon-01_c114_20.png";
 import Logo from "./components/Logo/Logo";
 import Box from "./components/Box/Box";
 import Button from "./components/Button/Button";
 import Footer from "./components/Footer/Footer";
 import GenderButton from "./components/Button/GenderButton";
 import Progressbar from "./components/Progressbar/Progressbar";
-// import QuizCheckBox from "./components/QuizCheckBox/QuizCheckBox";
 import Input from "./components/Input/Input";
 import QuizHeader from "./components/QuizHeader/QuizHeader";
+import Postloader from "./components/Postloader/Postloader";
 
 function App() {
   const [steps, setStep] = useState(11);
   const [currentStep, setCurrentStep] = useState(0);
-  const [checkList, setCheckList] = useState({
-    Chicken: "",
-    Pork: "",
-    Beef: "",
-    Fish: "",
-    Seafood: "",
-    Bacon: "",
-  });
 
   function onStepUpdate(currentStep, steps) {
-    currentStep >= steps
+    currentStep > steps
       ? setCurrentStep(steps)
       : setCurrentStep(currentStep + 1);
   }
 
-  function onCheckBoxUpdate(item) {
-    setCheckList((prevState) => {
-      return {
-        ...prevState,
-        [item]: prevState[item] === "checked" ? "" : "checked",
-      };
-    });
+  //TODO:: Разбить каждый шаг на отдельные компоненты
+  if (currentStep > 11) {
+    return <Postloader />;
   }
 
   return (
@@ -106,67 +88,6 @@ function App() {
         </div>
       </div>
       {/* Step 3 */}
-      {/* <div className={currentStep === 2 ? "quiz-meat" : "quiz-meat hidden"}>
-        <div className="section_content">
-          <div className="quiz-header-wrapper">
-            <h1 className="quiz-question-header">
-              PLEASE SELECT WHICH MEAT YOU <br /> WOULD LIKE TO BE INCLUDED{" "}
-            </h1>
-          </div>
-          <div className="quiz-box-wrapper">
-            <div className="quiz-box-inner flex">
-              <div className="quiz-column">
-                <QuizCheckBox
-                  onCheckBoxUpdate={onCheckBoxUpdate}
-                  checkList={checkList}
-                  item="Chicken"
-                  icon={chickenMeatIcon}
-                />
-                <QuizCheckBox
-                  onCheckBoxUpdate={onCheckBoxUpdate}
-                  checkList={checkList}
-                  item="Pork"
-                  icon={porkMeatIcon}
-                />
-                <QuizCheckBox
-                  onCheckBoxUpdate={onCheckBoxUpdate}
-                  checkList={checkList}
-                  item="Beef"
-                  icon={beefMeatIcon}
-                />
-              </div>
-              <div className="quiz-column">
-                <QuizCheckBox
-                  onCheckBoxUpdate={onCheckBoxUpdate}
-                  checkList={checkList}
-                  item="Fish"
-                  icon={fishMeatIcon}
-                />
-                <QuizCheckBox
-                  onCheckBoxUpdate={onCheckBoxUpdate}
-                  checkList={checkList}
-                  item="Seafood"
-                  icon={fishMeatIcon}
-                />
-                <QuizCheckBox
-                  onCheckBoxUpdate={onCheckBoxUpdate}
-                  checkList={checkList}
-                  item="Bacon"
-                  icon={baconMeatIcon}
-                />
-              </div>
-            </div>
-          </div>
-          <Progressbar currentStep={currentStep} steps={steps} />
-        </div>
-        <Button
-          onStepUpdate={onStepUpdate}
-          currentStep={currentStep}
-          steps={steps}
-          type="next"
-          label="next"
-        />
-      </div> */}
       <div
         className={
           currentStep === 2
@@ -320,6 +241,242 @@ function App() {
                 steps={steps}
                 type="answer"
                 label="I EXERCISE 5-7 TIMES A WEEK"
+              />
+            </div>
+          </div>
+          <Progressbar currentStep={currentStep} steps={steps} />
+        </div>
+      </div>
+      {/* Step 8 */}
+      <div className={currentStep === 7 ? "quiz-true" : "quiz-true hidden"}>
+        <div className="section_content">
+          <QuizHeader text="WHICH OF THE FOLLOWING IS TRUE FOR YOU " />
+          <div className="quiz-box-wrapper">
+            <div className="true-wrapper mx-auto w-4/5">
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="I DO NOT GET ENOUGH SLEEP"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="I EAT LATE AT NIGHT"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="I CONSUME A LOT OF SALT"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="I CANNOT GIVE UP EATING SWEETS"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="I LOVE SOFT DRINKS"
+              />
+            </div>
+          </div>
+          <Progressbar currentStep={currentStep} steps={steps} />
+        </div>
+      </div>
+      {/* Step 9 */}
+      <div className={currentStep === 8 ? "quiz-sleep" : "quiz-sleep hidden"}>
+        <div className="section_content">
+          <QuizHeader text="How long do you usually sleep?" />
+          <div className="quiz-box-wrapper">
+            <div className="sleep-wrapper mx-auto w-4/5">
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="Minimal sleep (less than 5 hours)"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="I don't sleep much (5-6 hours)"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="I sleep long and well (7-8 hours)"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="I sleep a lot (more than 8 hours)"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="My sleep is unstable in time"
+              />
+            </div>
+          </div>
+          <Progressbar currentStep={currentStep} steps={steps} />
+        </div>
+      </div>
+      {/* Step 10 */}
+      <div className={currentStep === 9 ? "quiz-water" : "quiz-water hidden"}>
+        <div className="section_content">
+          <QuizHeader text="How much water do you drink every day?" />
+          <div className="quiz-box-wrapper">
+            <div className="water-wrapper mx-auto w-4/5">
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="I only drink coffee, tea or soda"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="About 2 cups of water"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="2 to 6 cups of water"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="More than 6 cups of water"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="Drinking water as needed"
+              />
+            </div>
+          </div>
+          <Progressbar currentStep={currentStep} steps={steps} />
+        </div>
+      </div>
+      {/* Step 11 */}
+      <div
+        className={
+          currentStep === 10
+            ? "quiz-desired_weight"
+            : "quiz-desired_weight hidden"
+        }
+      >
+        <div className="section_content">
+          <QuizHeader text="When was the last time you were at your desired weight?" />
+          <div className="quiz-box-wrapper">
+            <div className="desired_weight-wrapper mx-auto w-4/5">
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="Less than a year ago"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="1-2 years ago"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="3-5 years ago"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="More than 5 years ago"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="Never"
+              />
+            </div>
+          </div>
+          <Progressbar currentStep={currentStep} steps={steps} />
+        </div>
+      </div>
+      {/* Step 12 */}
+      <div className={currentStep === 11 ? "quiz-diet" : "quiz-diet hidden"}>
+        <div className="section_content">
+          <QuizHeader text="Have you ever tried a diet or weight loss product before?" />
+          <div className="quiz-box-wrapper">
+            <div className="diet-wrapper mx-auto w-4/5">
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="Yes, I lost weight, but the weight came back"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="Yes, but no results"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="Yes, but I would like to lose more weight"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="No, but want to try"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="No, but I am interested"
               />
             </div>
           </div>
