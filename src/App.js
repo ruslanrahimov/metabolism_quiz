@@ -7,18 +7,20 @@ import secondCardImage from "./assets/body2_5160_10.png";
 import thirdCardImage from "./assets/body3_fa53_11.png";
 import fourthCardImage from "./assets/body4_b846_12.png";
 import footerEdge from "./assets/footer-edge_b3e5_16.png";
-import chickenMeatIcon from "./assets/chicken-icon-1chicke_6589_15.png";
-import porkMeatIcon from "./assets/pork-icon-01-1pork-i_0231_17.png";
-import beefMeatIcon from "./assets/beef-icon-01_ff53_18.png";
-import fishMeatIcon from "./assets/fish-icon-01_f49d_19.png";
-import baconMeatIcon from "./assets/bacon-icon-01_c114_20.png";
+// import chickenMeatIcon from "./assets/chicken-icon-1chicke_6589_15.png";
+// import porkMeatIcon from "./assets/pork-icon-01-1pork-i_0231_17.png";
+// import beefMeatIcon from "./assets/beef-icon-01_ff53_18.png";
+// import fishMeatIcon from "./assets/fish-icon-01_f49d_19.png";
+// import baconMeatIcon from "./assets/bacon-icon-01_c114_20.png";
 import Logo from "./components/Logo/Logo";
 import Box from "./components/Box/Box";
 import Button from "./components/Button/Button";
 import Footer from "./components/Footer/Footer";
 import GenderButton from "./components/Button/GenderButton";
 import Progressbar from "./components/Progressbar/Progressbar";
-import QuizCheckBox from "./components/QuizCheckBox/QuizCheckBox";
+// import QuizCheckBox from "./components/QuizCheckBox/QuizCheckBox";
+import Input from "./components/Input/Input";
+import QuizHeader from "./components/QuizHeader/QuizHeader";
 
 function App() {
   const [steps, setStep] = useState(11);
@@ -104,7 +106,7 @@ function App() {
         </div>
       </div>
       {/* Step 3 */}
-      <div className={currentStep === 2 ? "quiz-meat" : "quiz-meat hidden"}>
+      {/* <div className={currentStep === 2 ? "quiz-meat" : "quiz-meat hidden"}>
         <div className="section_content">
           <div className="quiz-header-wrapper">
             <h1 className="quiz-question-header">
@@ -164,6 +166,165 @@ function App() {
           type="next"
           label="next"
         />
+      </div> */}
+      <div
+        className={
+          currentStep === 2
+            ? "quiz-measurment-age"
+            : "quiz-measurment-age hidden"
+        }
+      >
+        <div className="section_content">
+          <QuizHeader text="YOUR AGE" />
+          <div className="quiz-box-wrapper">
+            <div className="measurment-wrapper mx-auto">
+              <Input name="age" type="text" placeholder="age" />
+            </div>
+          </div>
+          <Progressbar currentStep={currentStep} steps={steps} />
+        </div>
+        <Button
+          onStepUpdate={onStepUpdate}
+          currentStep={currentStep}
+          steps={steps}
+          type="next"
+          label="next"
+        />
+      </div>
+      {/* Step 4 */}
+      <div
+        className={
+          currentStep === 3
+            ? "quiz-measurment-height"
+            : "quiz-measurment-height hidden"
+        }
+      >
+        <div className="section_content">
+          <QuizHeader text="YOUR HEIGH" />
+          <div className="quiz-box-wrapper">
+            <div className="measurment-wrapper mx-auto">
+              <Input
+                name="height"
+                type="number"
+                placeholder="Height (Centimeters)"
+              />
+            </div>
+          </div>
+          <Progressbar currentStep={currentStep} steps={steps} />
+        </div>
+        <Button
+          onStepUpdate={onStepUpdate}
+          currentStep={currentStep}
+          steps={steps}
+          type="next"
+          label="next"
+        />
+      </div>
+      {/* Step 5 */}
+      <div
+        className={
+          currentStep === 4
+            ? "quiz-measurment-current_weight"
+            : "quiz-measurment-current_weight hidden"
+        }
+      >
+        <div className="section_content">
+          <QuizHeader text="YOUR CURRENT WEIGHT" />
+          <div className="quiz-box-wrapper">
+            <div className="measurment-wrapper mx-auto">
+              <Input
+                name="weight"
+                type="number"
+                placeholder="Current Weight (Kilograms)"
+              />
+            </div>
+          </div>
+          <Progressbar currentStep={currentStep} steps={steps} />
+        </div>
+        <Button
+          onStepUpdate={onStepUpdate}
+          currentStep={currentStep}
+          steps={steps}
+          type="next"
+          label="next"
+        />
+      </div>
+      {/* Step 6 */}
+      <div
+        className={
+          currentStep === 5
+            ? "quiz-measurment-target_weight"
+            : "quiz-measurment-target_weight hidden"
+        }
+      >
+        <div className="section_content">
+          <QuizHeader text="YOUR TARGET WEIGHT" />
+          <div className="quiz-box-wrapper">
+            <div className="measurment-wrapper mx-auto">
+              <Input
+                name="target_weight"
+                type="number"
+                placeholder="Target Weight (Kilograms)"
+              />
+            </div>
+          </div>
+          <Progressbar currentStep={currentStep} steps={steps} />
+        </div>
+        <Button
+          onStepUpdate={onStepUpdate}
+          currentStep={currentStep}
+          steps={steps}
+          type="next"
+          label="next"
+        />
+      </div>
+      {/* Step 7 */}
+      <div
+        className={currentStep === 6 ? "quiz-activity" : "quiz-activity hidden"}
+      >
+        <div className="section_content">
+          <QuizHeader text="PHYSICAL ACTIVITY" />
+          <div className="quiz-box-wrapper">
+            <div className="activity-wrapper mx-auto w-4/5">
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="Almost no physical activity"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="I OFTEN GO FOR A WALK"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="I EXERCISE 1-2 A WEEK"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="I EXERCISE 3-5 TIMES A WEEK"
+              />
+              <Button
+                onStepUpdate={onStepUpdate}
+                currentStep={currentStep}
+                steps={steps}
+                type="answer"
+                label="I EXERCISE 5-7 TIMES A WEEK"
+              />
+            </div>
+          </div>
+          <Progressbar currentStep={currentStep} steps={steps} />
+        </div>
       </div>
       <div
         className="divider-footer"
