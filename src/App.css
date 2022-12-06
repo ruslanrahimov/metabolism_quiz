@@ -40,3 +40,32 @@ img {
   font-weight: 100;
   line-height: 1.2;
 }
+
+.quiz-header-wrapper {
+  max-width: 680px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.quiz-question-header {
+  margin: 50px 0 45px;
+  color: #1a2f5b;
+  font-size: 35px;
+  line-height: 1.2;
+  font-weight: 800;
+  text-align: center;
+}
+
+.quiz-box-wrapper {
+  margin-top: 20px;
+}
+
+.quiz-box-inner {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.quiz-column {
+  width: 50%;
+}

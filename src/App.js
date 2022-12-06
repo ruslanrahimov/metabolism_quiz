@@ -7,21 +7,44 @@ import secondCardImage from "./assets/body2_5160_10.png";
 import thirdCardImage from "./assets/body3_fa53_11.png";
 import fourthCardImage from "./assets/body4_b846_12.png";
 import footerEdge from "./assets/footer-edge_b3e5_16.png";
+import chickenMeatIcon from "./assets/chicken-icon-1chicke_6589_15.png";
+import porkMeatIcon from "./assets/pork-icon-01-1pork-i_0231_17.png";
+import beefMeatIcon from "./assets/beef-icon-01_ff53_18.png";
+import fishMeatIcon from "./assets/fish-icon-01_f49d_19.png";
+import baconMeatIcon from "./assets/bacon-icon-01_c114_20.png";
 import Logo from "./components/Logo/Logo";
 import Box from "./components/Box/Box";
 import Button from "./components/Button/Button";
 import Footer from "./components/Footer/Footer";
 import GenderButton from "./components/Button/GenderButton";
 import Progressbar from "./components/Progressbar/Progressbar";
+import QuizCheckBox from "./components/QuizCheckBox/QuizCheckBox";
 
 function App() {
   const [steps, setStep] = useState(11);
   const [currentStep, setCurrentStep] = useState(0);
+  const [checkList, setCheckList] = useState({
+    Chicken: "",
+    Pork: "",
+    Beef: "",
+    Fish: "",
+    Seafood: "",
+    Bacon: "",
+  });
 
   function onStepUpdate(currentStep, steps) {
     currentStep >= steps
       ? setCurrentStep(steps)
       : setCurrentStep(currentStep + 1);
+  }
+
+  function onCheckBoxUpdate(item) {
+    setCheckList((prevState) => {
+      return {
+        ...prevState,
+        [item]: prevState[item] === "checked" ? "" : "checked",
+      };
+    });
   }
 
   return (
@@ -79,6 +102,68 @@ function App() {
             <Progressbar currentStep={currentStep} steps={steps} />
           </div>
         </div>
+      </div>
+      {/* Step 3 */}
+      <div className={currentStep === 2 ? "quiz-meat" : "quiz-meat hidden"}>
+        <div className="section_content">
+          <div className="quiz-header-wrapper">
+            <h1 className="quiz-question-header">
+              PLEASE SELECT WHICH MEAT YOU <br /> WOULD LIKE TO BE INCLUDED{" "}
+            </h1>
+          </div>
+          <div className="quiz-box-wrapper">
+            <div className="quiz-box-inner flex">
+              <div className="quiz-column">
+                <QuizCheckBox
+                  onCheckBoxUpdate={onCheckBoxUpdate}
+                  checkList={checkList}
+                  item="Chicken"
+                  icon={chickenMeatIcon}
+                />
+                <QuizCheckBox
+                  onCheckBoxUpdate={onCheckBoxUpdate}
+                  checkList={checkList}
+                  item="Pork"
+                  icon={porkMeatIcon}
+                />
+                <QuizCheckBox
+                  onCheckBoxUpdate={onCheckBoxUpdate}
+                  checkList={checkList}
+                  item="Beef"
+                  icon={beefMeatIcon}
+                />
+              </div>
+              <div className="quiz-column">
+                <QuizCheckBox
+                  onCheckBoxUpdate={onCheckBoxUpdate}
+                  checkList={checkList}
+                  item="Fish"
+                  icon={fishMeatIcon}
+                />
+                <QuizCheckBox
+                  onCheckBoxUpdate={onCheckBoxUpdate}
+                  checkList={checkList}
+                  item="Seafood"
+                  icon={fishMeatIcon}
+                />
+                <QuizCheckBox
+                  onCheckBoxUpdate={onCheckBoxUpdate}
+                  checkList={checkList}
+                  item="Bacon"
+                  icon={baconMeatIcon}
+                />
+              </div>
+            </div>
+          </div>
+          <Progressbar currentStep={currentStep} steps={steps} />
+        </div>
+        <Button
+          onStepUpdate={onStepUpdate}
+          currentStep={currentStep}
+          steps={steps}
+          type="next"
+          label="next"
+        />
       </div>
       <div
         className="divider-footer"
