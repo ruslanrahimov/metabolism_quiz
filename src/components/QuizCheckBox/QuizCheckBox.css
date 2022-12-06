@@ -12,6 +12,11 @@
   cursor: pointer;
 }
 
+.checkbox:hover {
+  background-image: linear-gradient(90deg, #ff9831, #ff3912);
+  color: #fff;
+}
+
 .checkbox-title {
   font-size: 19px;
   line-height: 1.4;
