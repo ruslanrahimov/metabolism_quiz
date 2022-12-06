@@ -1,0 +1,27 @@
+.checkbox {
+  display: flex;
+  width: 90%;
+  margin: 15px auto;
+  padding: 10px 15px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ff9831;
+  border-radius: 100px;
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+}
+
+.checkbox-title {
+  font-size: 19px;
+  line-height: 1.4;
+  font-weight: 600;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.checkbox-box {
+  width: 33px;
+  height: 33px;
+  background-color: #e0e0e0;
+}
