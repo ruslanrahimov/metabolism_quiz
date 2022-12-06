@@ -15,19 +15,19 @@ import GenderButton from "./components/Button/GenderButton";
 import Progressbar from "./components/Progressbar/Progressbar";
 
 function App() {
-  const [circle, setCircle] = useState(11);
-  const [circleActive, setCircleActive] = useState(0);
+  const [steps, setStep] = useState(11);
+  const [currentStep, setCurrentStep] = useState(0);
 
-  function updateProgressbar(active, circle) {
-    active >= circle ? setCircleActive(circle) : setCircleActive(active + 1);
+  function onStepUpdate(currentStep, steps) {
+    currentStep >= steps
+      ? setCurrentStep(steps)
+      : setCurrentStep(currentStep + 1);
   }
-
-  console.log(circleActive);
 
   return (
     <div className="App">
       {/* Step 1 */}
-      <div className="main">
+      <div className={currentStep === 0 ? "main" : "main hidden"}>
         <div className="section_headline flex justify-center py-4">
           <Logo size="big" />
         </div>
@@ -44,11 +44,17 @@ function App() {
             <Box image={thirdCardImage} />
             <Box image={fourthCardImage} />
           </div>
-          <Button type="main" label="take the quiz now" />
+          <Button
+            onStepUpdate={onStepUpdate}
+            currentStep={currentStep}
+            steps={steps}
+            type="main"
+            label="take the quiz now"
+          />
         </div>
       </div>
       {/* Step 2 */}
-      <div className="quiz-sex">
+      <div className={currentStep === 1 ? "quiz-sex" : "quiz-sex hidden"}>
         <div className="section_content">
           <h1 className="quiz-sex-header text-center mt-10 mb-11">
             Is This New <span className="font-extrabold">Speed Keto</span>
@@ -58,19 +64,19 @@ function App() {
           <div className="quiz-box-wrapper mt-5">
             <div className="gender-box mx-auto flex justify-center w-11/12">
               <GenderButton
-                active={circleActive}
-                circle={circle}
-                updateProgressbar={updateProgressbar}
+                step={currentStep}
+                steps={steps}
+                onStepUpdate={onStepUpdate}
                 gender="male"
               />
               <GenderButton
-                active={circleActive}
-                circle={circle}
-                updateProgressbar={updateProgressbar}
+                step={currentStep}
+                steps={steps}
+                onStepUpdate={onStepUpdate}
                 gender="female"
               />
             </div>
-            <Progressbar active={circleActive} circle={circle} />
+            <Progressbar currentStep={currentStep} steps={steps} />
           </div>
         </div>
       </div>

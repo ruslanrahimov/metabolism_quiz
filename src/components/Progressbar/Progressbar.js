@@ -1,12 +1,11 @@
 import React from "react";
-import { useState } from "react";
 import "./Progressbar.css";
 
-function Progressbar({ active, circle }) {
+function Progressbar({ currentStep, steps }) {
   const arrOfCircles = [];
-  for (let i = 0; i <= circle; i++) {
+  for (let i = 0; i <= steps; i++) {
     arrOfCircles.push(
-      <div className={i === active ? "circle active" : "circle"}></div> //TODO:: Добавить key
+      <div className={i === currentStep ? "circle active" : "circle"}></div> //TODO:: Добавить key
     );
   }
 
