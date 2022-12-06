@@ -1,0 +1,14 @@
+.quiz-header-wrapper {
+  max-width: 680px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.quiz-question-header {
+  margin: 50px 0 45px;
+  color: #1a2f5b;
+  font-size: 35px;
+  line-height: 1.2;
+  font-weight: 800;
+  text-align: center;
+}
