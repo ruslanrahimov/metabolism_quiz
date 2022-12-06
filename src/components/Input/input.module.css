@@ -1,0 +1,60 @@
+.input {
+  display: block;
+  width: 100%;
+  height: 38px;
+  padding: 8px 0 8px 12px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-bottom-width: 1px;
+  background-position: 0px 50%;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  font-weight: 700;
+}
+
+.input:focus {
+  border-color: #3898ec;
+  outline: 0;
+}
+
+.age {
+  composes: input;
+  padding: 25px 0 25px 12px;
+  border-style: none none solid;
+  background-image: url("../../assets/age-icon-01-1age-ico_39ac_67.png");
+  color: #000;
+  font-size: 17px;
+  line-height: 1.4;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.height {
+  composes: input;
+  margin-bottom: 0px;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-style: none none solid;
+  background-image: url("../../assets/height-icon-01_c67a_65.png");
+  color: #000;
+  font-size: 17px;
+  line-height: 51px;
+  height: 51px;
+  text-align: center;
+}
+
+.weight {
+  composes: input;
+  composes: height;
+  background-image: url("../../assets/weight-icon-01_045f_66.png");
+}
+
+.target_weight {
+  composes: input;
+  composes: height;
+  background-image: url("../../assets/weight-icon-02_7783_68.png");
+}
