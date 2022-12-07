@@ -1,14 +1,13 @@
 import React from "react";
 import styles from "./genderButton.module.css";
-import maleIcon from "../../assets/male_9090_13.png";
-import femaleIcon from "../../assets/female_c847_14.png";
+import { maleIcon, femaleIcon } from "../../constants/constants";
 
-function GenderButton({ gender, onStepUpdate, steps, step }) {
+function GenderButton({ gender, onStepUpdate }) {
   const icon = gender === "male" ? maleIcon : femaleIcon;
 
   return (
-    <div
-      onClick={() => onStepUpdate(step, steps)}
+    <button
+      onClick={() => onStepUpdate()}
       className={`gender-button ${styles[gender]}`}
     >
       <img
@@ -19,7 +18,7 @@ function GenderButton({ gender, onStepUpdate, steps, step }) {
       <div className="gender-label mt-5 font-semibold text-white text-2xl uppercase">
         {gender}
       </div>
-    </div>
+    </button>
   );
 }
 
