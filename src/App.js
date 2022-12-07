@@ -17,15 +17,23 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [prelander, setPrelander] = useState(false);
 
+  useEffect(() => {
+    let timeout;
+    if (currentStep > Constants.steps) {
+      setLoading(true);
+      timeout = setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [currentStep]);
+
   const onStepUpdate = () => {
     currentStep > Constants.steps
       ? setCurrentStep(Constants.steps)
       : setCurrentStep((step) => step + 1);
   };
-
-  if (currentStep > Constants.steps) {
-    setLoading(true);
-  }
 
   return (
     <div className="App">
@@ -389,7 +397,7 @@ function App() {
         <div className="divider-footer"></div>
       </div>
       <Footer />
-      <Postloader loading={loading} setLoading={setLoading} />
+      <Postloader loading={loading} />
     </div>
   );
 }

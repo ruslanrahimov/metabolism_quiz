@@ -1,5 +1,9 @@
 .postloader {
   display: none;
+}
+
+.postloader.loading {
+  display: flex;
   align-items: center;
   background: #fff;
   height: 100vh;
@@ -12,8 +16,4 @@
   z-index: 9999;
   opacity: 1;
   transform: opacity 1s linear;
-}
-
-.postloader.loading {
-  display: block;
 }
