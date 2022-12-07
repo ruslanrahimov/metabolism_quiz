@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./button.module.css";
 
-function MainButton({ type, label, onStepUpdate, currentStep, steps }) {
+function MainButton({ type, label, onStepUpdate }) {
   return (
     <button
-      onClick={() => onStepUpdate(currentStep, steps)}
+      onClick={() => onStepUpdate()}
       className={styles[type]}
     >
       {label}
