@@ -1,0 +1,21 @@
+.linkInner {
+  text-align: center;
+}
+
+.link {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  color: #fff;
+  border-radius: 7px;
+  border-width: 0px;
+  padding: 20px 40px;
+  font-size: 50px;
+  font-weight: 700;
+  background: linear-gradient(180deg, #ec5757 0%, #dc2727 100%);
+  text-transform: uppercase;
+}
+
+.link:hover {
+  box-shadow: 0px 15px 25px -7px rgba(0, 0, 0, 0.1);
+}

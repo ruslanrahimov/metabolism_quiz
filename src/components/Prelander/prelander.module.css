@@ -1,0 +1,180 @@
+.prelander {
+  display: none;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  font-size: 22px;
+  line-height: 1.6;
+}
+
+.active {
+  composes: prelander;
+  display: block;
+}
+
+.headerWrapper {
+  position: relative;
+  background: linear-gradient(#009eb1 0%, #37b4c2 50%, #009eb1 100%);
+}
+
+.headerWrapper::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+  border-top-color: transparent;
+  border-top-color: #009eb1;
+  border-width: 30px 30px 0px 30px;
+  position: absolute;
+  bottom: -30px;
+  z-index: 14;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.inner {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.headerInner {
+  composes: inner;
+  padding: 40px 0;
+}
+
+.header {
+  font-weight: 800;
+  font-size: 54px;
+  line-height: 1.3;
+  text-align: center;
+  color: #fff;
+}
+
+.infoInner {
+  composes: inner;
+  padding: 70px 0 50px;
+  color: #3f3f3f;
+}
+
+.infoCondition {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.infoConditionBlock {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  min-width: 0;
+  min-height: 0;
+  border-top-width: 5px;
+  border-right-width: 5px;
+  border-bottom-width: 5px;
+  border-left-width: 5px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 100%;
+}
+
+.infoConditionBlockRed {
+  composes: infoConditionBlock;
+  border-color: #a91f23;
+  margin-right: 20px;
+}
+.infoConditionBlockGreen {
+  composes: infoConditionBlock;
+  border-color: #69a915;
+}
+
+.conditionBlockHeader {
+  height: 40px;
+}
+
+.conditionBlockHeaderRed {
+  composes: conditionBlockHeader;
+  background-color: #a91f23;
+}
+.conditionBlockHeaderGreen {
+  composes: conditionBlockHeader;
+  background-color: #69a915;
+}
+
+.blockLogoWrapper {
+  text-align: center;
+  margin-top: -75px;
+}
+
+.blockLogoInner {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blockLogoInnerRed {
+  composes: blockLogoInner;
+  color: #a91f23;
+}
+.blockLogoInnerGreen {
+  composes: blockLogoInner;
+  color: #69a915;
+}
+
+.infoBlockText {
+  font-size: 20px;
+  padding: 15px;
+  line-height: 1.6;
+  font-weight: normal;
+}
+
+.infoContentWrapper {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  color: #3f3f3f;
+}
+
+.infoContentInner {
+  padding: 20px 20px 0 20px;
+}
+
+/* ---------------- Sectio Offer ---------------- */
+
+.sectionOffer {
+  background-image: url("../../assets/footer-bg.jpg");
+  background-size: cover;
+  background-position: 51% 43%;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+}
+
+.sectionOfferWrapper {
+  max-width: 1170px;
+  padding: 70px 0;
+  margin: 0 auto;
+}
+
+.sectionOfferInner {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionOfferContentHeader {
+  composes: header;
+  color: #222;
+  margin-bottom: 30px;
+}
+
+.footerWrapper {
+  padding-top: 30px;
+}

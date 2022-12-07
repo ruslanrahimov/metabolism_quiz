@@ -11,6 +11,7 @@ import Progressbar from "./components/Progressbar/Progressbar";
 import Input from "./components/Input/Input";
 import QuizHeader from "./components/QuizHeader/QuizHeader";
 import Postloader from "./components/Postloader/Postloader";
+import Prelander from "./components/Prelander/Prelander";
 
 function App() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -23,6 +24,7 @@ function App() {
       setLoading(true);
       timeout = setTimeout(() => {
         setLoading(false);
+        setPrelander(true);
       }, 2000);
     }
 
@@ -398,6 +400,7 @@ function App() {
       </div>
       <Footer />
       <Postloader loading={loading} />
+      <Prelander active={prelander} />
     </div>
   );
 }
