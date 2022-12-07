@@ -1,7 +1,7 @@
 .postloader {
+  display: none;
   align-items: center;
   background: #fff;
-  display: flex;
   height: 100vh;
   justify-content: center;
   left: 0;
@@ -12,4 +12,8 @@
   z-index: 9999;
   opacity: 1;
   transform: opacity 1s linear;
+}
+
+.postloader.loading {
+  display: block;
 }

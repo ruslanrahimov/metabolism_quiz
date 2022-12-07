@@ -1,11 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import "./assets/fonts.css";
-import firstCardImage from "./assets/body1_15a3_9.png";
-import secondCardImage from "./assets/body2_5160_10.png";
-import thirdCardImage from "./assets/body3_fa53_11.png";
-import fourthCardImage from "./assets/body4_b846_12.png";
-import footerEdge from "./assets/footer-edge_b3e5_16.png";
+import * as Constants from "./constants/constants";
 import Logo from "./components/Logo/Logo";
 import Box from "./components/Box/Box";
 import Button from "./components/Button/Button";
@@ -17,18 +13,18 @@ import QuizHeader from "./components/QuizHeader/QuizHeader";
 import Postloader from "./components/Postloader/Postloader";
 
 function App() {
-  const [steps, setStep] = useState(11);
   const [currentStep, setCurrentStep] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [prelander, setPrelander] = useState(false);
 
-  function onStepUpdate(currentStep, steps) {
-    currentStep > steps
-      ? setCurrentStep(steps)
-      : setCurrentStep(currentStep + 1);
-  }
+  const onStepUpdate = () => {
+    currentStep > Constants.steps
+      ? setCurrentStep(Constants.steps)
+      : setCurrentStep((step) => step + 1);
+  };
 
-  //TODO:: Разбить каждый шаг на отдельные компоненты
-  if (currentStep > 11) {
-    return <Postloader />;
+  if (currentStep > Constants.steps) {
+    setLoading(true);
   }
 
   return (
@@ -47,15 +43,13 @@ function App() {
               </h1>
             </div>
             <div className="main-box-wrapper mt-5 mx-auto">
-              <Box image={firstCardImage} />
-              <Box image={secondCardImage} />
-              <Box image={thirdCardImage} />
-              <Box image={fourthCardImage} />
+              <Box image={Constants.firstCardImage} />
+              <Box image={Constants.secondCardImage} />
+              <Box image={Constants.thirdCardImage} />
+              <Box image={Constants.fourthCardImage} />
             </div>
             <Button
               onStepUpdate={onStepUpdate}
-              currentStep={currentStep}
-              steps={steps}
               type="main"
               label="take the quiz now"
             />
@@ -71,20 +65,10 @@ function App() {
             </h1>
             <div className="quiz-box-wrapper mt-5">
               <div className="gender-box mx-auto flex justify-center w-11/12">
-                <GenderButton
-                  step={currentStep}
-                  steps={steps}
-                  onStepUpdate={onStepUpdate}
-                  gender="male"
-                />
-                <GenderButton
-                  step={currentStep}
-                  steps={steps}
-                  onStepUpdate={onStepUpdate}
-                  gender="female"
-                />
+                <GenderButton onStepUpdate={onStepUpdate} gender="male" />
+                <GenderButton onStepUpdate={onStepUpdate} gender="female" />
               </div>
-              <Progressbar currentStep={currentStep} steps={steps} />
+              <Progressbar currentStep={currentStep} steps={Constants.steps} />
             </div>
           </div>
         </div>
@@ -103,15 +87,9 @@ function App() {
                 <Input name="age" type="text" placeholder="age" />
               </div>
             </div>
-            <Progressbar currentStep={currentStep} steps={steps} />
+            <Progressbar currentStep={currentStep} steps={Constants.steps} />
           </div>
-          <Button
-            onStepUpdate={onStepUpdate}
-            currentStep={currentStep}
-            steps={steps}
-            type="next"
-            label="next"
-          />
+          <Button onStepUpdate={onStepUpdate} type="next" label="next" />
         </div>
         {/* Step 4 */}
         <div
@@ -132,15 +110,9 @@ function App() {
                 />
               </div>
             </div>
-            <Progressbar currentStep={currentStep} steps={steps} />
+            <Progressbar currentStep={currentStep} steps={Constants.steps} />
           </div>
-          <Button
-            onStepUpdate={onStepUpdate}
-            currentStep={currentStep}
-            steps={steps}
-            type="next"
-            label="next"
-          />
+          <Button onStepUpdate={onStepUpdate} type="next" label="next" />
         </div>
         {/* Step 5 */}
         <div
@@ -161,15 +133,9 @@ function App() {
                 />
               </div>
             </div>
-            <Progressbar currentStep={currentStep} steps={steps} />
+            <Progressbar currentStep={currentStep} steps={Constants.steps} />
           </div>
-          <Button
-            onStepUpdate={onStepUpdate}
-            currentStep={currentStep}
-            steps={steps}
-            type="next"
-            label="next"
-          />
+          <Button onStepUpdate={onStepUpdate} type="next" label="next" />
         </div>
         {/* Step 6 */}
         <div
@@ -190,15 +156,9 @@ function App() {
                 />
               </div>
             </div>
-            <Progressbar currentStep={currentStep} steps={steps} />
+            <Progressbar currentStep={currentStep} steps={Constants.steps} />
           </div>
-          <Button
-            onStepUpdate={onStepUpdate}
-            currentStep={currentStep}
-            steps={steps}
-            type="next"
-            label="next"
-          />
+          <Button onStepUpdate={onStepUpdate} type="next" label="next" />
         </div>
         {/* Step 7 */}
         <div
@@ -212,42 +172,32 @@ function App() {
               <div className="activity-wrapper mx-auto w-4/5">
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="Almost no physical activity"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="I OFTEN GO FOR A WALK"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="I EXERCISE 1-2 A WEEK"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="I EXERCISE 3-5 TIMES A WEEK"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="I EXERCISE 5-7 TIMES A WEEK"
                 />
               </div>
             </div>
-            <Progressbar currentStep={currentStep} steps={steps} />
+            <Progressbar currentStep={currentStep} steps={Constants.steps} />
           </div>
         </div>
         {/* Step 8 */}
@@ -258,42 +208,32 @@ function App() {
               <div className="true-wrapper mx-auto w-4/5">
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="I DO NOT GET ENOUGH SLEEP"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="I EAT LATE AT NIGHT"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="I CONSUME A LOT OF SALT"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="I CANNOT GIVE UP EATING SWEETS"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="I LOVE SOFT DRINKS"
                 />
               </div>
             </div>
-            <Progressbar currentStep={currentStep} steps={steps} />
+            <Progressbar currentStep={currentStep} steps={Constants.steps} />
           </div>
         </div>
         {/* Step 9 */}
@@ -304,42 +244,32 @@ function App() {
               <div className="sleep-wrapper mx-auto w-4/5">
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="Minimal sleep (less than 5 hours)"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="I don't sleep much (5-6 hours)"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="I sleep long and well (7-8 hours)"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="I sleep a lot (more than 8 hours)"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="My sleep is unstable in time"
                 />
               </div>
             </div>
-            <Progressbar currentStep={currentStep} steps={steps} />
+            <Progressbar currentStep={currentStep} steps={Constants.steps} />
           </div>
         </div>
         {/* Step 10 */}
@@ -350,42 +280,32 @@ function App() {
               <div className="water-wrapper mx-auto w-4/5">
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="I only drink coffee, tea or soda"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="About 2 cups of water"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="2 to 6 cups of water"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="More than 6 cups of water"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="Drinking water as needed"
                 />
               </div>
             </div>
-            <Progressbar currentStep={currentStep} steps={steps} />
+            <Progressbar currentStep={currentStep} steps={Constants.steps} />
           </div>
         </div>
         {/* Step 11 */}
@@ -402,42 +322,32 @@ function App() {
               <div className="desired_weight-wrapper mx-auto w-4/5">
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="Less than a year ago"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="1-2 years ago"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="3-5 years ago"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="More than 5 years ago"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="Never"
                 />
               </div>
             </div>
-            <Progressbar currentStep={currentStep} steps={steps} />
+            <Progressbar currentStep={currentStep} steps={Constants.steps} />
           </div>
         </div>
         {/* Step 12 */}
@@ -448,50 +358,38 @@ function App() {
               <div className="diet-wrapper mx-auto w-4/5">
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="Yes, I lost weight, but the weight came back"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="Yes, but no results"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="Yes, but I would like to lose more weight"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="No, but want to try"
                 />
                 <Button
                   onStepUpdate={onStepUpdate}
-                  currentStep={currentStep}
-                  steps={steps}
                   type="answer"
                   label="No, but I am interested"
                 />
               </div>
             </div>
-            <Progressbar currentStep={currentStep} steps={steps} />
+            <Progressbar currentStep={currentStep} steps={Constants.steps} />
           </div>
         </div>
-        <div
-          className="divider-footer"
-          style={{ backgroundImage: `url(${footerEdge})` }}
-        ></div>
+        <div className="divider-footer"></div>
       </div>
       <Footer />
+      <Postloader loading={loading} setLoading={setLoading} />
     </div>
   );
 }
