@@ -1,3 +1,7 @@
+.section-footer {
+  flex-shrink: 0;
+}
+
 .footer-container {
   max-width: 850px;
 }

@@ -1,4 +1,11 @@
+html,
 body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
   font-family: Raleway, sans-serif;
   background-image: url("./assets/bg-meat-1_9da4_13.png"),
     url("./assets/bg-plate-1_4f9f_14.png"),
@@ -7,6 +14,10 @@ body {
   background-size: 280px, 350px, cover;
   background-repeat: no-repeat, no-repeat, repeat-y;
   background-attachment: scroll, scroll, scroll;
+}
+
+.steps_wrapper {
+  flex: 1 0 auto;
 }
 
 img {
