@@ -81,7 +81,8 @@
   box-shadow: none;
 }
 
-.answer:hover {
+.answer:hover,
+.answer:active {
   border-style: solid;
   background-image: linear-gradient(90deg, #ff9831, #ff3912),
     linear-gradient(180deg, #fff, #fff);
