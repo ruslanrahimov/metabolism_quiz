@@ -19,3 +19,25 @@
 .link:hover {
   box-shadow: 0px 15px 25px -7px rgba(0, 0, 0, 0.1);
 }
+
+@media (max-width: 1024px) {
+  .link {
+    width: 90%;
+  }
+}
+@media (max-width: 550px) {
+  .link {
+    font-size: 34px;
+  }
+}
+@media (max-width: 440px) {
+  .link {
+    padding: 15px;
+    font-size: 28px;
+  }
+}
+@media (max-width: 380px) {
+  .link {
+    font-size: 24px;
+  }
+}

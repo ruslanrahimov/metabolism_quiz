@@ -1,3 +1,15 @@
 .logo-wrapper {
   width: 350px;
 }
+
+@media (max-width: 767px) {
+  .logo-wrapper {
+    width: 200px;
+  }
+}
+
+@media (max-width: 479px) {
+  .logo-wrapper {
+    width: 110px;
+  }
+}

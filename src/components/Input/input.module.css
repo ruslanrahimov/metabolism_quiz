@@ -58,3 +58,9 @@
   composes: height;
   background-image: url("../../assets/weight-icon-02_7783_68.png");
 }
+
+@media (max-width: 479px) {
+  .input {
+    font-size: 14px;
+  }
+}

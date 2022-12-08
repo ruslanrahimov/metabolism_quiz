@@ -1,8 +1,7 @@
 .main-box {
   display: inline-block;
   width: 23%;
-  margin-right: 5px;
-  margin-left: 5px;
+  margin: 0 5px;
   padding: 10px 5px;
   border-style: solid;
   border-width: 4px;
@@ -10,4 +9,19 @@
   border-radius: 20px;
   background-color: #fff;
   box-shadow: 4px 4px 7px -1px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 991px) {
+  .main-box {
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 0;
+    box-shadow: 1px 1px 2px -1px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@media (max-width: 767px) {
+}
+
+@media (max-width: 479px) {
 }

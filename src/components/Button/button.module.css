@@ -87,3 +87,31 @@
     linear-gradient(180deg, #fff, #fff);
   color: #fff;
 }
+
+@media (max-width: 767px) {
+  .main {
+    width: 70%;
+    font-size: 29px;
+  }
+  .answer {
+    width: 90%;
+  }
+}
+
+@media (max-width: 479px) {
+  .main {
+    width: 90%;
+    margin-top: 10px;
+    font-size: 23px;
+  }
+
+  .next {
+    width: 90%;
+    font-size: 18px;
+  }
+
+  .answer {
+    padding: 15px 10px;
+    font-size: 14px;
+  }
+}

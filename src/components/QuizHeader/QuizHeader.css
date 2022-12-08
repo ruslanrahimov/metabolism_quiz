@@ -1,7 +1,6 @@
 .quiz-header-wrapper {
   max-width: 680px;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 0 auto;
 }
 
 .quiz-question-header {
@@ -12,4 +11,15 @@
   font-weight: 800;
   text-align: center;
   text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+  .quiz-header-wrapper {
+    width: 90%;
+  }
+
+  .quiz-question-header {
+    margin: 50px 0 30px;
+    font-size: 28px;
+  }
 }

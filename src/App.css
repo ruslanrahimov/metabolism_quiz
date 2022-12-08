@@ -74,3 +74,72 @@ img {
   border-radius: 10px;
   background-color: #fff;
 }
+
+@media (max-width: 991px) {
+  body {
+    background-position: 107% -10%, -40px -60px, 50% 0%;
+    background-size: 200px, 200px, cover;
+  }
+
+  .main-box-wrapper {
+    text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    background-position: 110% -5%, -12% -17%, 50% 0%;
+    background-size: 150px, 180px, cover;
+  }
+
+  .header-main-wrapper {
+    width: 70%;
+  }
+
+  .header-main {
+    font-size: 35px;
+  }
+
+  .main-box-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    grid-row-gap: 6px;
+    margin-top: 0;
+  }
+
+  .measurment-wrapper {
+    width: 90%;
+  }
+}
+
+@media (max-width: 479px) {
+  body {
+    background-position: 110% -5%, -12% -15%, 50% 0%;
+    background-size: 90px, 110px, cover;
+  }
+
+  .header-main-wrapper {
+    width: 90%;
+  }
+
+  .header-main {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 25px;
+    line-height: 1;
+  }
+
+  .divider-footer {
+    height: 80px;
+  }
+
+  .gender-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .quiz-sex-header {
+    margin-bottom: 0;
+  }
+}

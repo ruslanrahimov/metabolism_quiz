@@ -5,3 +5,15 @@
 .footer-container {
   max-width: 850px;
 }
+
+@media (max-width: 991px) {
+  .footer-container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 479px) {
+  .section_footer {
+    padding-top: 15px;
+  }
+}

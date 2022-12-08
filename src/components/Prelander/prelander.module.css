@@ -73,14 +73,8 @@
   z-index: 1;
   min-width: 0;
   min-height: 0;
-  border-top-width: 5px;
-  border-right-width: 5px;
-  border-bottom-width: 5px;
-  border-left-width: 5px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-width: 5px;
+  border-radius: 10px;
   width: 100%;
 }
 
@@ -175,6 +169,53 @@
   margin-bottom: 30px;
 }
 
+.sectionOfferContentText {
+  padding-top: 30px;
+}
+
 .footerWrapper {
   padding-top: 30px;
+}
+
+@media (max-width: 1024px) {
+  .header {
+    font-size: 48px;
+  }
+
+  .infoContentInner {
+    font-size: 21px;
+  }
+  .sectionOfferContentText {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 767px) {
+  .header {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+
+  .headerWrapper::before {
+    bottom: -28px;
+  }
+
+  .infoCondition {
+    flex-direction: column;
+  }
+
+  .infoConditionBlock {
+    width: 90%;
+    margin: 0 auto 60px;
+  }
+
+  .infoContentInner {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  .infoConditionBlockGreen {
+    margin-bottom: 0;
+  }
 }

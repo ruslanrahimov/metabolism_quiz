@@ -23,3 +23,27 @@
 .circle.active {
   background-color: #93c954;
 }
+
+@media (max-width: 767px) {
+  .progressbar {
+    padding: 15px;
+  }
+
+  .circle {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media (max-width: 479px) {
+  .progressbar {
+    width: 90%;
+    padding: 15px 13px;
+    margin-top: 40px;
+  }
+
+  .circle {
+    width: 13px;
+    height: 13px;
+  }
+}

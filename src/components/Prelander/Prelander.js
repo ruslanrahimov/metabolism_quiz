@@ -84,14 +84,14 @@ const Prelander = ({ active }) => {
               <h2 className={styles.sectionOfferContentHeader}>
                 Start The 30-Day Ultra Fast Keto Challenge Today!
               </h2>
-              <p className="sectionOfferContentText py-7 ">
+              <p className={styles.sectionOfferContentText}>
                 Just think, in a few weeks, all the excess fat will disappear
                 from your hips, stomach, arms, and thighs. And you’ll have a
                 smile on your face that won’t fade away. You will finally have
                 the body you have always desired, and your life will change for
                 the better!
               </p>
-              <p className="sectionOfferContentText">
+              <p className={styles.sectionOfferContentText}>
                 Click the button below now and let’s say goodbye to feeling
                 under-confident and welcome a new, better-looking version of you
                 with all the confidence and self-love in the world!

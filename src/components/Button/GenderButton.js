@@ -15,7 +15,7 @@ function GenderButton({ gender, onStepUpdate }) {
         src={icon}
         alt="gender"
       />
-      <div className="gender-label mt-5 font-semibold text-white text-2xl uppercase">
+      <div className={styles.genderLabel}>
         {gender}
       </div>
     </button>

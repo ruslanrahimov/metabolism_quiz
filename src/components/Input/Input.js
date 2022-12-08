@@ -7,6 +7,7 @@ function Input({ placeholder, type, name }) {
       type={type}
       className={styles[name]}
       placeholder={placeholder}
+      required
     ></input>
   );
 }
